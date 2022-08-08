@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 import React from 'react';
 import { data } from 'autoprefixer';
+import { useTranslation } from 'react-i18next'
 
 
 export default function PendingProposal() {
@@ -15,6 +16,7 @@ export default function PendingProposal() {
     const [proposalCount, setProposalCount] = useState(0)
     const [array1, setArray1] = useState<number[]>([])
 
+    const { t } = useTranslation('common')
     // gets the total number of proposals submitted
     const getProposalCount = useContractRead({
         addressOrName: GOVERNANCE_ADDRESS,
@@ -38,7 +40,7 @@ export default function PendingProposal() {
 
     return (
         <>
-            <h1 className={styles.header}>Pending Proposals</h1>
+            <h1 className={styles.header}>{t('Pending Proposals')}</h1>
             <div className={styles.box}>
                 {array1.map((i) => (
                     <div key={i}>                           

@@ -5,6 +5,7 @@ import { IGIVE_ABI, IGIVE_TOKEN, GOOD_ABI, GOOD_TOKEN } from '../utils/constants
 import { faClose } from '@fortawesome/free-solid-svg-icons'
 import { formatUnits, parseUnits } from 'ethers/lib/utils'
 import {toast} from 'react-toastify'
+import { useTranslation } from 'react-i18next'
 
 const StakeBox = () => {
 
@@ -18,6 +19,7 @@ const StakeBox = () => {
 	const [claimable, setClaimable] = useState('Fetching')
 
 	const {address} = useAccount()
+	const { t } = useTranslation('common')
 
 	const getGoodBalance = useBalance({
 		addressOrName: address,
@@ -177,7 +179,7 @@ const StakeBox = () => {
 		{/* Header */}
 		{/* <button className='ml-auto -mr-8 mt-2'><FontAwesomeIcon icon={faRotateRight}/></button> */}
 		<div className=''>
-			<h1 className='font-bold text-black text-center text-xl pt-6'>Stake GOOD</h1>
+			<h1 className='font-bold text-black text-center text-xl pt-6'>{t('Stake GOOD')}</h1>
 		</div>
 
 
@@ -185,7 +187,7 @@ const StakeBox = () => {
 		<div className='flex flex-col pt-14'>
 			<div>
 				<div className='flex justify-between'>
-					<h1 className='items-start'>GOOD Balance: </h1>
+					<h1 className='items-start'>{t('GOOD Balance')}</h1>
 					<h1 className='items-end'>{goodBalance}</h1>
 				</div>
 				<div className='relative'>
@@ -195,7 +197,7 @@ const StakeBox = () => {
 
 			{allowance.data?.toHexString() == "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff" ? <button className={`m-auto text-white bg-green rounded-md py-2 px-3 mt-2 font-bold`} 
 				onClick={() => setShowModal(true)}
-				>Deposit</button> :
+				>{t('Deposit')}</button> :
 
 				<button className={`m-auto text-white bg-green rounded-md py-2 px-3 mt-2 font-bold`} onClick={
 				
@@ -209,23 +211,23 @@ const StakeBox = () => {
 		{/* Withdraw Section */}
 		<div className='flex flex-col pt-14'>
 			<div className='flex justify-between'>
-				<h1 className='items-start'>iGIVE Balance: </h1>
+				<h1 className='items-start'>{t('iGIVE Balance')}</h1>
 				<h1 className='items-end'>{giveBalance}</h1>
 			</div>
 			<div className='relative'>
 				<input className='rounded-lg h-8 bg-gray border border-solid w-full' type={'number'} value={withdrawAmnt} onChange={(e) => {setWithdrawAmnt(e.currentTarget.value)}} min={0}/>
 			</div>
-			<button className={`m-auto text-white bg-purple rounded-md py-2 px-3 mt-2 font-bold`} onClick={() => withdraw.write()}>Withdraw</button>
+			<button className={`m-auto text-white bg-purple rounded-md py-2 px-3 mt-2 font-bold`} onClick={() => withdraw.write()}>{t('Withdraw')}</button>
 		</div>
 
 
 		{/* Approve Section */}
 		<div className='flex flex-col pt-14 pb-14'>
 			<div className='flex justify-between'>
-				<h1 className='items-start'>Claimable GOOD</h1>
+				<h1 className='items-start'>{t('Claimable GOOD')}</h1>
 				<h1 className='items-end'>{claimable}</h1>
 			</div>
-			<button className={`m-auto text-white bg-green rounded-md py-2 px-3 mt-2 font-bold`} onClick={()=> {claimGood.write()}}>Claim GOOD</button>
+			<button className={`m-auto text-white bg-green rounded-md py-2 px-3 mt-2 font-bold`} onClick={()=> {claimGood.write()}}>{t('Claim GOOD')}</button>
 		</div>
 	</div>
   )

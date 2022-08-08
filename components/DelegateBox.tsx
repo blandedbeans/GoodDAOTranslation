@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import { useContractReads, useContractWrite } from 'wagmi'
 import { IGIVE_ABI, IGIVE_TOKEN } from '../utils/constants'
+import { useTranslation } from 'react-i18next'
 
 
 
@@ -10,6 +11,8 @@ import { IGIVE_ABI, IGIVE_TOKEN } from '../utils/constants'
 const DelegateBox = () => {
 
 	const [address, setAddress] = useState('')
+
+	const { t } = useTranslation('common')
 
 	const delegate = useContractWrite({
         addressOrName: IGIVE_TOKEN,
@@ -58,22 +61,22 @@ const DelegateBox = () => {
   return (
 	<div className='mt-[5vh] ml-[20vw] w-[60vw] h-[60vh] bg-white rounded-3xl border-purple border-4 p-6 overflow-auto font-bold'>
 
-	<h2>Before you can vote, you must assign your voting rights to either yourself, or you can assign it to a third party.</h2>
+	<h2>{t('Before you can vote')}</h2>
 	<br/>
 	<br/>
 	
 
-	Enter the Ethereum address of wallet to receive the voting rights.
+	{t('Enter address')}
 	<input className='w-full border-black rounded-lg border-2 p-1 font-bold' type={'text'} value ={address} onChange={(e)=>{setAddress(e.target.value)}} />
 	<br/>
 	<br/>
 	<button onClick={()=>{delegate.write()}} className='bg-green rounded-2xl py-2 px-3 font-bold text-white ml-[50%] -translate-x-1/2'>
-		Delegate
+		{t('Delegate')}
 	</button>
 	<br/>
 	<br/>
 	<p className='text-zinc-400 font-normal text-sm'>
-		By delegating your voting rights, you allow the recipient user to vote any decision on a proposal without your consent, however you can take back your rights by entering your address above and delegating back to yourself. The recipient does not take any ownership of your iGIVE tokens.
+		{t('Delegate Terms')}
 	</p>
 	</div>
   )

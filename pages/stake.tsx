@@ -6,6 +6,7 @@ import { useContractRead } from 'wagmi'
 import { IGIVE_ABI, IGIVE_TOKEN, GOOD_ABI, GOOD_TOKEN, GIVE_DAI_LP, DAI_TOKEN, DAI_ABI, RPC_URL } from '../utils/constants'
 import { formatUnits } from 'ethers/lib/utils'
 import Web3 from 'web3'
+import { useTranslation } from 'react-i18next'
 
 interface Transfers {
 	from: string;
@@ -29,6 +30,7 @@ const Stake = () => {
 	const [decimals, setDecimals] = useState(-99)
 	const [totalSupply, setTotalSupply] = useState(-99)
 	
+	const { t } = useTranslation('common')
 	useContractRead({
 		addressOrName: GOOD_TOKEN,
 		contractInterface: GOOD_ABI,
@@ -200,15 +202,15 @@ const Stake = () => {
   return (
 	<div className='flex h-screen space-x-10 p-10 items-center'>
 		<div className='flex flex-1 flex-col h-screen pt-[200px] pb-60 justify-between px-20'>
-			<InfoBox title="Price" text={'$' + tokenPriceVsQuote.toString()}/>
-			<InfoBox title="Token Threshold" text={threshold}/>
+			<InfoBox title={t('Price')} text={'$' + tokenPriceVsQuote.toString()}/>
+			<InfoBox title={t('Token Threshold')} text={threshold}/>
 		</div>
 		<div className=' flex-1 '>
 			<StakeBox/>
 		</div>
 		<div className='flex flex-1 flex-col h-screen pt-[200px] pb-60 justify-between px-20'>
-			<InfoBox title="APR" text={apr}/>
-			<InfoBox title="Total Staked" text={staked}/>
+			<InfoBox title={t('APR')} text={apr}/>
+			<InfoBox title={t('Total Staked')} text={staked}/>
 		</div>
 	</div>
 	

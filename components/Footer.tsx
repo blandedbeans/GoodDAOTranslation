@@ -4,9 +4,11 @@ import { faCode, faHighlighter, faBook } from '@fortawesome/free-solid-svg-icons
 import { faTwitter, faDiscord, faGithub, faInstagram, } from '@fortawesome/free-brands-svg-icons'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useTranslation } from 'react-i18next'
 
 const Footer = () => {
 	const router = useRouter();
+	const { t } = useTranslation('common')
 
 	function copyElementText() {
 		// var text = document.getElementById("heading")!.innerText;
@@ -54,7 +56,7 @@ const Footer = () => {
 				</a>
 
 				<div className='absolute mr-6 right-0'>
-					<h1>Donate to our community wallet!</h1>
+					<h1>{t('Donate to our community wallet')}</h1>
 					{/* <h1 onClick={copyElementText} id="heading">0x7cE76D95B5BE54D3c1D2b40C1c37C4A8913bD4b5</h1> */}
 					{/* <button onClick={copyElementText} id="heading">0x7cE76D95B5BE54D3c1D2b40C1c37C4A8913bD4b5</button> */}
 					<div className='flex justify-center'>
@@ -73,7 +75,7 @@ const Footer = () => {
 					<div className='absolute ml-14 left-0'>
 						<div className='flex justify-center border-black border-2 px-2 rounded-md'>
 							{/* <Link href={'/'}>Back</Link> */}
-							<button onClick={() => router.back()}>Back</button>
+							<button onClick={() => router.back()}>{t('Back')}</button>
 						</div>
 					</div>
 				}
