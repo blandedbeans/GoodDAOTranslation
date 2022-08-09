@@ -26,7 +26,7 @@ export default function Proposals() {
                 {t('Submit Proposals')}
             </div>
             </Link>
-            <Link href='/delegateVote'>
+            <Link href='/DelegateVote'>
             <div className={styles.proposals}>
                 {t('Delegate Votes')}
             </div>

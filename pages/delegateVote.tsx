@@ -1,7 +1,7 @@
 import DelegateBox from '../components/DelegateBox'
 import { useTranslation } from 'react-i18next'
 
-export default function delegateVote() {
+export default function DelegateVote() {
     const { t } = useTranslation('common')
 
 

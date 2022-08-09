@@ -162,14 +162,14 @@ const StakeBox = () => {
 			<div className='absolute inset-1/2 bg-white -translate-x-1/2 -translate-y-1/2 z-[11] w-1/5 h-1/5 rounded-lg shadow-2xl opacity-100'>
 				{/* Header */}
 				<div className='flex justify-start shadow-md'>
-					<p className='text-black font-bold text-xl py-2 inline ml-2'>Confirm Deposit</p>
+					<p className='text-black font-bold text-xl py-2 inline ml-2'>{t('Confirm Deposit')}</p>
 					<button className='ml-auto p-2 mr-2' onClick={()=>{setShowModal(false)}}><FontAwesomeIcon icon={faClose}/></button>
 				</div>
 				{/* Body */}
 				<div className='h-full'>
-					<p className='pt-3 pl-2'>Confirm Deposit Amount</p>
+					<p className='pt-3 pl-2'>{t('Confirm Deposit Amount')}</p>
 					<p className='pt-3 pl-2 text-lg font-bold'>{approveAmnt}</p>
-					<div className='absolute left-1/2 -translate-x-1/2 bottom-2'><button className='p-2 text-white font-bold rounded-md bg-green' onClick={()=>{deposit.write()}}>Deposit</button></div>
+					<div className='absolute left-1/2 -translate-x-1/2 bottom-2'><button className='p-2 text-white font-bold rounded-md bg-green' onClick={()=>{deposit.write()}}>{t('Deposit')}</button></div>
 				</div>
 			</div>
 		</div>

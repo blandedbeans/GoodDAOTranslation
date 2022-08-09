@@ -118,11 +118,11 @@
     "To Include 4" : "对代币和任何合同的审计，如果建立的话",
     "To Include 5" : "燃烧和分配计划",
 
-    "Connecting" : "Connect (Connecting)",
-    "Disconnect" : "Disconnect",
+    "Connecting" : "连接 (Connecting)",
+    "Disconnect" : "断开连接",
 
-    "Confirm Deposit" : "Confirm Deposit",
-    "Confirm Deposit Amount" : "Confirm Deposit Amount",
+    "Confirm Deposit" : "确认存款",
+    "Confirm Deposit Amount" : "确认存款金额",
 
-    "Enter address" : "Enter address"
+    "Enter address" : "输入地址"
 }

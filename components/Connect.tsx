@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useAccount, useConnect, useDisconnect } from 'wagmi'
 import truncateWalletAddress from '../utils/truncateWalletAddress'
 import Meta from '../public/metamask.png'
-import Image from 'next/image';
+import Image from 'next/image'
+import { useTranslation } from 'react-i18next'
 
 const Connect = () => {
-
+	const { t } = useTranslation('common')
 	const [btnTxt, setBtnTxt] = useState(<div></div>)
 
 	const { connect, connectors, error, isLoading, pendingConnector } = useConnect({
@@ -43,7 +44,7 @@ const Connect = () => {
 		return (
 			<div>
 				<div>{truncateWalletAddress(address || 'N/A')}</div>
-				<button onClick={disconnectClick}>Disconnect</button>
+				<button onClick={disconnectClick}>{t("Disconnect")}</button>
 			</div>
 		)
 	}
